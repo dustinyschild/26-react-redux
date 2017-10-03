@@ -1,3 +1,4 @@
+require('./category-item.scss');
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -8,11 +9,16 @@ const CategoryItem = ({ category,categoryUpdate,categoryRemove }) => {
   return(
     <div className="category-item">
       <h2>{category.title}</h2>
+      {
+        category.budget ?
+          <p>${category.budget}</p> :
+          <p>No budget set</p>
+      }
       <button onClick={() => categoryRemove(category)}>Remove</button>
       <CategoryForm
         buttonText="Update"
         category={category}
-        saveCategory={actions}
+        saveCategory={categoryUpdate}
       />
     </div>
   );

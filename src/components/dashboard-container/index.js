@@ -14,15 +14,18 @@ class DashboardContainer extends React.Component {
           buttonText="Add Category"
           saveCategory={this.props.categoryCreate}
         />
-        {this.props.categories.map(cat =>{
-          return (
-            <CategoryItem
-              key={cat.id}
-              category={cat}
-            />
-          );
-        }
-        )}
+        <div className="categories-container">
+          <h2>Categories:</h2>
+          {this.props.categories.map(cat =>{
+            return (
+              <CategoryItem
+                key={cat.id}
+                category={cat}
+              />
+            );
+          }
+          )}
+        </div>
       </div>
     );
   }

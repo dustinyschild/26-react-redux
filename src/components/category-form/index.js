@@ -1,10 +1,11 @@
+require('./category-form.scss');
 import React from 'react';
 
 export default class CategoryForm extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = Object.assign({ title: ''},props.category);
+    this.state = Object.assign({ title: '',budget: '' },props.category);
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -17,12 +18,8 @@ export default class CategoryForm extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    if (this.props.update){
-      this.props.updateCategory()
-    } else {
-      this.props.saveCategory(Object.assign({},this.state));
-    }
-    this.setState({ title: '' });
+    this.props.saveCategory(Object.assign({},this.state));
+    this.setState({ title: '',budget: ''});
   }
 
   render(){
@@ -35,6 +32,21 @@ export default class CategoryForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
+        <label>$
+          <input
+            name='budget'
+            type='number'
+            placeholder='budget!'
+            value={this.state.budget}
+            onChange={this.handleChange}
+          />
+          <button type='submit'>
+            {this.props.category ?
+              'Update' :
+              'Add Category'
+            }
+          </button>
+        </label>
       </form>
     );
   }
