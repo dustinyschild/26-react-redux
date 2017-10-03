@@ -19,7 +19,7 @@ export default class CategoryForm extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     this.props.saveCategory(Object.assign({},this.state));
-    this.setState({ title: '',budget: ''});
+    if(!this.props.category) this.setState({ title: '',budget: ''});
   }
 
   render(){
