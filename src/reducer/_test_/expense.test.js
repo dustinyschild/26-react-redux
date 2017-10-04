@@ -119,3 +119,23 @@ test('create category initializes empty array',() => {
     [categoryId]: []
   });
 });
+
+test('remove category removes all expenses also',() => {
+  const categoryId = 5;
+  const state = {
+    [categoryId]: [
+      { categoryId,id: 4,title: 'Expense 2' }
+    ]
+  };
+  const action = {
+    type: 'CATEGORY_REMOVE',
+    payload: {
+      categoryId
+    }
+  };
+
+  deepFreeze([state,action]);
+
+  const res = reducer(state,action);
+  expect(res).toEqual(defaultState);
+});

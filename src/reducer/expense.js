@@ -43,7 +43,15 @@ export default (state = initialState,action = {}) => {
       return {
         ...state,
         [id]: []
-      }
+      };
+    }
+    case 'CATEGORY_REMOVE':
+    {
+      let { categoryId } = payload;
+      let newState = {...state};
+      console.log(state);
+      delete newState[categoryId];
+      return newState;
     }
     default:
       return state;
