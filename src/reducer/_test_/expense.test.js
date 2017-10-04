@@ -1,15 +1,13 @@
 import deepFreeze from 'deep-freeze';
 
-import reducer from '../';
+import reducer from '../expense';
 
-const defaultState = {
-  categories: [],
-  expenses: {}
-};
+const defaultState = {};
 deepFreeze(defaultState);
 
 test('initial state should be default',() => {
   let res = reducer();
+  console.log(res);
   expect(res).toEqual(defaultState);
 });
 
@@ -22,7 +20,7 @@ test('invalid action returns state',() => {
   deepFreeze(action);
 
   let res = reducer(state, action);
-
+  console.log(res);
   expect(res).toEqual(state);
 });
 
@@ -30,7 +28,7 @@ test('creates expense',() => {
   const categoryId = 10;
   const state = {
     [categoryId]: [
-      { categoryId,id: 6,title: 'Old Expense'},
+      { categoryId: categoryId,id: 6,title: 'Old Expense'},
     ]
   };
   const action = {
@@ -46,10 +44,11 @@ test('creates expense',() => {
   deepFreeze(action);
 
   let res = reducer(state,action);
+  console.log(res);
   expect(res).toEqual({
     10: [
       { categoryId,id: 6,title: 'Old Expense' },
       { categoryId,id: 8,title: 'New Expense'}
     ]
-  })
+  });
 });

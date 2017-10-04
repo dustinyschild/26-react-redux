@@ -1,14 +1,20 @@
 const initialState = {};
 
 export default (state = initialState,action = {}) => {
-  console.log('__STATE__',state);
-  console.log('__ACTION___',action);
   const { type,payload } = action;
   switch(type){
     case 'EXPENSE_CREATE':
-      return state;
+      var { categoryId } = payload;
+      var categoryExpenses = state[categoryId];
+      return {
+        ...state,
+        [categoryId]: [
+          ...categoryExpenses,
+          payload
+        ],
+      };
     default:
-      console.log('returning state');
+      console.log('returning state',state);
       return state;
   }
 };
