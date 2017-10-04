@@ -4,8 +4,9 @@ export default (state = initialState,action = {}) => {
   const { type,payload } = action;
   switch(type){
     case 'EXPENSE_CREATE':
-      var categoryId = payload.categoryId;
-      var categoryExpenses = state[categoryId];
+    {
+      let { categoryId } = payload;
+      let categoryExpenses = state[categoryId];
       return {
         ...state,
         [categoryId]: [
@@ -13,17 +14,28 @@ export default (state = initialState,action = {}) => {
           payload
         ],
       };
+    }
     case 'EXPENSE_UPDATE':
     {
-      let categoryId = payload.categoryId;
+      let { categoryId } = payload;
       let categoryExpenses = state[categoryId];
       return {
         ...state,
         [categoryId]: categoryExpenses.map(expense => {
-          console.log({expense, payload});
           return payload.id === expense.id ? payload : expense;
         }),
       };
+    }
+    case 'EXPENSE_REMOVE':
+    {
+      let { categoryId } = payload;
+      let categoryExpenses = state[categoryId];
+      return {
+        ...state,
+        [categoryId]: categoryExpenses.filter(expense => {
+          return expense.id !== payload.id;
+        }),
+      }
     }
     default:
       return state;

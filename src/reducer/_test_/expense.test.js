@@ -7,7 +7,6 @@ deepFreeze(defaultState);
 
 test('initial state should be default',() => {
   let res = reducer();
-  console.log(res);
   expect(res).toEqual(defaultState);
 });
 
@@ -20,7 +19,6 @@ test('invalid action returns state',() => {
   deepFreeze(action);
 
   let res = reducer(state, action);
-  console.log(res);
   expect(res).toEqual(state);
 });
 
@@ -44,7 +42,6 @@ test('creates expense',() => {
   deepFreeze(action);
 
   let res = reducer(state,action);
-  console.log(res);
   expect(res).toEqual({
     10: [
       { categoryId,id: 6,title: 'Old Expense' },
@@ -76,5 +73,31 @@ test('update expense',() => {
     10: [
       { title: 'New Expense',id: 3,categoryId },
     ],
+  });
+});
+
+test('remove expense',() => {
+  const categoryId = 10;
+  const state = {
+    [categoryId]: [
+      { categoryId,id: 3,title: 'Expense 1'},
+      { categoryId,id: 4,title: 'Expense 2'},
+    ]
+  };
+  const action = {
+    type: 'EXPENSE_REMOVE',
+    payload: {
+      id: 3,
+      categoryId,
+    },
+  };
+
+  deepFreeze([state,action]);
+
+  const res = reducer(state,action);
+  expect(res).toEqual({
+    10: [
+      { categoryId,id: 4,title: 'Expense 2' }
+    ]
   });
 });
