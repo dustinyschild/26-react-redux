@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import CategoryForm from '../category-form';
 import ExpenseForm from '../expense-form';
+import ExpenseItem from '../expense-item';
 import * as categoryActions from '../../action/category-actions';
 import * as expenseActions from '../../action/expense-actions';
 
@@ -28,12 +29,17 @@ class CategoryItem extends React.Component {
         />
         <div className="expense-container">
           <ExpenseForm category={this.props.category} saveExpense={this.props.expenseCreate}/>
-          <div className="expense-items">
+          <div className="expense-items-container">
             <h4>Expenses: </h4>
             {this.props.expenses.map(expense => {
               return (
-                <ExpenseItem expense={expense}/>
-              )
+                <ExpenseItem
+                  key={expense.id}
+                  expense={expense}
+                  category={this.props.category}
+                  saveExpense={this.props.expenseUpdate}
+                  expenseRemove={this.props.expenseRemove}/>
+              );
             })}
           </div>
         </div>

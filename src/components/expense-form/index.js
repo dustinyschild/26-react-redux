@@ -6,8 +6,8 @@ export default class ExpenseForm extends React.Component {
     let { id } = props.category;
     this.state = {
       categoryId: id,
-      expenseName: '',
-      expenseCost: '',
+      name: '',
+      cost: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -28,14 +28,14 @@ export default class ExpenseForm extends React.Component {
       <div className="expense-form">
         <form onSubmit={this.handleSubmit}>
           <input
-            name="expenseName"
+            name="name"
             type="text"
             placeholder="Expense"
             value={this.state.text}
             onChange={this.handleChange}
           />
           <input
-            name="expenseCost"
+            name="cost"
             type="number"
             placeholder="cost"
             value={this.state.cost}
