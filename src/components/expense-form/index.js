@@ -3,9 +3,9 @@ import React from 'react';
 export default class ExpenseForm extends React.Component {
   constructor(props){
     super(props);
-    let { id } = props.category;
     this.state = {
-      categoryId: id,
+      ...this.props.expense,
+      categoryId: props.category.id,
       name: '',
       cost: '',
     };
@@ -20,6 +20,7 @@ export default class ExpenseForm extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
+    console.log(this.state);
     this.props.saveExpense(this.state);
   }
 
@@ -41,7 +42,11 @@ export default class ExpenseForm extends React.Component {
             value={this.state.cost}
             onChange={this.handleChange}
           />
-          <button type="submit">Add Expense</button>
+          <button type="submit"
+            onSubmit={this.handleSubmit}
+          >
+            {this.props.buttonText || 'A Button Has No Name'}
+          </button>
         </form>
       </div>
     );

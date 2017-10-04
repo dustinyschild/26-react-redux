@@ -24,8 +24,9 @@ export default class ExpenseItem extends React.Component {
         <ExpenseForm
           expense={this.props.expense}
           category={this.props.category}
-          saveExpense={this.props.expenseUpdate}
+          saveExpense={this.props.saveExpense}
           removeExpense={this.props.expenseRemove}
+          buttonText={this.props.buttonText}
         />
       </div>
     );

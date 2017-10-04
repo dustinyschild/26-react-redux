@@ -28,7 +28,11 @@ class CategoryItem extends React.Component {
           saveCategory={this.props.categoryUpdate}
         />
         <div className="expense-container">
-          <ExpenseForm category={this.props.category} saveExpense={this.props.expenseCreate}/>
+          <ExpenseForm
+            category={this.props.category}
+            saveExpense={this.props.expenseCreate}
+            buttonText="Add Expense"
+          />
           <div className="expense-items-container">
             <h4>Expenses: </h4>
             {this.props.expenses.map(expense => {
@@ -38,7 +42,9 @@ class CategoryItem extends React.Component {
                   expense={expense}
                   category={this.props.category}
                   saveExpense={this.props.expenseUpdate}
-                  expenseRemove={this.props.expenseRemove}/>
+                  expenseRemove={this.props.expenseRemove}
+                  buttonText="Update"
+                />
               );
             })}
           </div>
