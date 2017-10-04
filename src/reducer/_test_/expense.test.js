@@ -101,3 +101,21 @@ test('remove expense',() => {
     ]
   });
 });
+
+test('create category initializes empty array',() => {
+  const categoryId = 5;
+  const state = defaultState;
+  const action = {
+    type: 'CATEGORY_CREATE',
+    payload: {
+      id: categoryId,
+    }
+  };
+
+  deepFreeze([state,action]);
+
+  const res = reducer(state,action);
+  expect(res).toEqual({
+    [categoryId]: []
+  });
+});

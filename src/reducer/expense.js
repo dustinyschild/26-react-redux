@@ -35,6 +35,14 @@ export default (state = initialState,action = {}) => {
         [categoryId]: categoryExpenses.filter(expense => {
           return expense.id !== payload.id;
         }),
+      };
+    }
+    case 'CATEGORY_CREATE':
+    {
+      let { id } = payload;
+      return {
+        ...state,
+        [id]: []
       }
     }
     default:
