@@ -49,7 +49,6 @@ export default (state = initialState,action = {}) => {
     {
       let { categoryId } = payload;
       let newState = {...state};
-      console.log(state);
       delete newState[categoryId];
       return newState;
     }

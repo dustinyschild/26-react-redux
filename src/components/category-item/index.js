@@ -3,31 +3,52 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CategoryForm from '../category-form';
-import * as actions from '../../action/category-actions';
+import ExpenseForm from '../expense-form';
+import * as categoryActions from '../../action/category-actions';
+import * as expenseActions from '../../action/expense-actions';
 
-const CategoryItem = ({ category,categoryUpdate,categoryRemove }) => {
-  return(
-    <div className="category-item">
-      <h2>{category.title}</h2>
-      {
-        category.budget ?
-          <p>${category.budget}</p> :
-          <p>No budget set</p>
-      }
-      <button onClick={() => categoryRemove(category)}>Remove</button>
-      <CategoryForm
-        buttonText="Update"
-        category={category}
-        saveCategory={categoryUpdate}
-      />
-    </div>
-  );
-};
+class CategoryItem extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <div className="category-item">
+        <h2>{this.props.category.title}</h2>
+        {
+          this.props.category.budget ?
+            <p>${this.props.category.budget}</p> :
+            <p>No budget set</p>
+        }
+        <button onClick={() => this.props.categoryRemove(this.props.category)}>Remove</button>
+        <CategoryForm
+          buttonText="Update"
+          category={this.props.category}
+          saveCategory={this.props.categoryUpdate}
+        />
+        <div className="expense-container">
+          <ExpenseForm category={this.props.category} saveExpense={this.props.expenseCreate}/>
+          <div className="expense-items">
+            <h4>Expenses: </h4>
+            {this.props.expenses.map(expense => {
+              return (
+                <ExpenseItem expense={expense}/>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
-let mapStateToProps = () => ({});
+let mapStateToProps = (state,props) => ({expenses: state.expenses[props.category.id]});
 let mapDispatchToProps = dispatch => ({
-  categoryUpdate: category => dispatch(actions.categoryUpdate(category)),
-  categoryRemove: category => dispatch(actions.categoryRemove(category)),
+  categoryUpdate: category => dispatch(categoryActions.categoryUpdate(category)),
+  categoryRemove: category => dispatch(categoryActions.categoryRemove(category)),
+  expenseCreate: expense => dispatch(expenseActions.expenseCreate(expense)),
+  expenseUpdate: expense => dispatch(expenseActions.expenseUpdate(expense)),
+  expenseRemove: expense => dispatch(expenseActions.expenseRemove(expense)),
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(CategoryItem);
