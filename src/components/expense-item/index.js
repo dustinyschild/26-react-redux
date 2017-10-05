@@ -18,7 +18,10 @@ export default class ExpenseItem extends React.Component {
       <div className="expense-item">
         <h5>{this.props.expense.name}</h5>
         <p>${this.props.expense.cost}</p>
-        <button onClick={this.handleRemove}>
+        <button
+          onClick={this.handleRemove}
+          className="delete"
+        >
           Delete
         </button>
         <ExpenseForm

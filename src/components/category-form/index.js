@@ -1,4 +1,3 @@
-require('./category-form.scss');
 import React from 'react';
 
 export default class CategoryForm extends React.Component {

@@ -1,0 +1,26 @@
+/* FONTS */
+$font-primary: 'Tahoma', sans-serif;
+$font-secondary: 'Georgia', serif;
+$font-lg: 18px;
+$font-sm: 12px;
+$font-med: 1em;
+
+/* COLORS */
+$black: #333;
+$white: #DDD;
+$grey: $black * 4;
+$brand-primary: #42CFF7;
+$brand-secondary: #FF7E00;
+$light-purple: #893168;
+$dark-purple: #3B1F2B;
+$red: #DB162F;
+$yellow: #EAC435;
+$blue: #345995;
+
+/* SPACING */
+$gutter-large: 3%;
+$gutter-small: $gutter-large / 2;
+
+/* AESTHETICS */
+$border-radius: 3px;
+$transition-primary: 350ms all;
