@@ -5,8 +5,13 @@
   padding: $gutter-large;
   border-radius: $border-radius;
 
-  .category-form {
+  .expense-container {
+    clear: both;
+    overflow: auto;
+  }
 
+  .category-form {
+    margin-bottom: 10px;
     input {
       display: inline
     }
@@ -29,9 +34,11 @@
   .delete {
     display: block;
     margin: $gutter-small;
+    width: 15%;
   }
 
   .expense-items-container {
     float: right;
+    width: 70%;
   }
 }
