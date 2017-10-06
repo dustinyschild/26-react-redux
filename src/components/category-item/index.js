@@ -38,7 +38,7 @@ class CategoryItem extends React.Component {
             <h4>Expenses: </h4>
             {this.props.expenses.map(expense => {
               return (
-                <ExpenseItem
+                <ExpenseItem className="expense-item"
                   key={expense.id}
                   expense={expense}
                   category={this.props.category}

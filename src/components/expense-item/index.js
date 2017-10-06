@@ -17,7 +17,7 @@ export default class ExpenseItem extends React.Component {
   render(){
     return (
       <div className="expense-item">
-        <h5>{this.props.expense.name}</h5>
+        <h3>{this.props.expense.name}</h3>
         <p>${this.props.expense.cost}</p>
         <button
           onClick={this.handleRemove}
