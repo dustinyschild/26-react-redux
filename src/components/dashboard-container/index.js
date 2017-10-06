@@ -9,7 +9,10 @@ class DashboardContainer extends React.Component {
   render(){
     return (
       <div className="dashboard-container">
-        <h2>Dashboard</h2>
+        <header>
+          <h1>DV Kanban</h1>
+        </header>
+        <h2>New Category:</h2>
         <CategoryForm
           buttonText="Add Category"
           saveCategory={this.props.categoryCreate}

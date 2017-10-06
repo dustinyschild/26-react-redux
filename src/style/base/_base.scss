@@ -1,6 +1,11 @@
 body {
   font-family: $font-primary;
-  background: $brand-primary;
+  background: $green;
+}
+
+input {
+  margin: $gutter-small;
+  display: block;
 }
 
 button {
@@ -38,6 +43,6 @@ button {
   h3 {
     font-size: $font-lg;
     font-weight: bold;
-    
+
   }
 }

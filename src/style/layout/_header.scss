@@ -1,0 +1,10 @@
+header {
+  position: fixed;
+  top: 0;
+  padding: $gutter-small;
+  font-size: $font-lg;
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  z-index: 5;
+}

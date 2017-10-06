@@ -1,5 +1,6 @@
+import './_expense-item.scss';
 import React from 'react';
-import ExpenseForm from '../expense-form'
+import ExpenseForm from '../expense-form';
 
 export default class ExpenseItem extends React.Component {
   constructor(props){

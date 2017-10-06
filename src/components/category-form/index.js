@@ -1,3 +1,5 @@
+import './_category-form.scss'
+
 import React from 'react';
 
 export default class CategoryForm extends React.Component {
@@ -31,21 +33,19 @@ export default class CategoryForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}
         />
-        <label>$
-          <input
-            name='budget'
-            type='number'
-            placeholder='budget!'
-            value={this.state.budget}
-            onChange={this.handleChange}
-          />
-          <button type='submit'>
-            {this.props.category ?
-              'Update' :
-              'Add Category'
-            }
-          </button>
-        </label>
+        <input
+          name='budget'
+          type='number'
+          placeholder='budget!'
+          value={this.state.budget}
+          onChange={this.handleChange}
+        />
+        <button type='submit'>
+          {this.props.category ?
+            'Update' :
+            'Add Category'
+          }
+        </button>
       </form>
     );
   }
