@@ -4,7 +4,7 @@
   background-color: $blue;
   padding: $gutter-small;
   border-radius: $border-radius;
-  width: 30%;
+  width: 25%;
   float: left;
   margin: $gutter-small / 2;
 
@@ -19,5 +19,7 @@
 
   .expense-form {
     border: $test-border;
+    width: 100%;
+    background-color: inherit;
   }
 }

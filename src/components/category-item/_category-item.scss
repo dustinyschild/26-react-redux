@@ -4,10 +4,11 @@
   background-color: $yellow;
   padding: $gutter-large;
   border-radius: $border-radius;
+  border: $coolgreen solid 3px;
 
   .expense-container {
     clear: both;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .category-form {
