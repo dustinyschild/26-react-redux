@@ -1,0 +1,53 @@
+body {
+  font-family: $font-primary;
+  background: $green;
+}
+
+h1,h2,h3 {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+input {
+  margin: $gutter-small;
+  display: block;
+}
+
+button {
+  color: $white;
+  font-weight: bold;
+  font-size: $font-med;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: $transition-primary;
+  border: none;
+  background: $black;
+  padding: $gutter-small;
+  width: 30%;
+
+  &:hover {
+    color: $black;
+    background-color: $grey;
+  }
+
+  &.delete {
+    background:$white;
+    color: $red;
+  }
+
+  input[type="text"], input[type="number"] {
+    padding: $gutter-small;
+    transition: $transition-primary;
+    font-size: $font-med;
+    border-color: $black;
+
+    &:focus {
+      border-color: $brand-secondary;
+    }
+  }
+
+  h3 {
+    font-size: $font-lg;
+    font-weight: bold;
+
+  }
+}

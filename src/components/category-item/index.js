@@ -1,4 +1,5 @@
-require('./category-item.scss');
+import './_category-item.scss';
+
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -21,7 +22,7 @@ class CategoryItem extends React.Component {
             <p>${this.props.category.budget}</p> :
             <p>No budget set</p>
         }
-        <button onClick={() => this.props.categoryRemove(this.props.category)}>Remove</button>
+        <button onClick={() => this.props.categoryRemove(this.props.category)} className="delete">Remove</button>
         <CategoryForm
           buttonText="Update"
           category={this.props.category}
@@ -37,7 +38,7 @@ class CategoryItem extends React.Component {
             <h4>Expenses: </h4>
             {this.props.expenses.map(expense => {
               return (
-                <ExpenseItem
+                <ExpenseItem className="expense-item"
                   key={expense.id}
                   expense={expense}
                   category={this.props.category}

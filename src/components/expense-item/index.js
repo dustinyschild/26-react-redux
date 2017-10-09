@@ -1,5 +1,6 @@
+import './_expense-item.scss';
 import React from 'react';
-import ExpenseForm from '../expense-form'
+import ExpenseForm from '../expense-form';
 
 export default class ExpenseItem extends React.Component {
   constructor(props){
@@ -16,9 +17,12 @@ export default class ExpenseItem extends React.Component {
   render(){
     return (
       <div className="expense-item">
-        <h5>{this.props.expense.name}</h5>
+        <h3>{this.props.expense.name}</h3>
         <p>${this.props.expense.cost}</p>
-        <button onClick={this.handleRemove}>
+        <button
+          onClick={this.handleRemove}
+          className="delete"
+        >
           Delete
         </button>
         <ExpenseForm

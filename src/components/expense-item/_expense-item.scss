@@ -1,0 +1,25 @@
+@import '../../style/lib/vars';
+
+.expense-item {
+  background-color: $blue;
+  padding: $gutter-small;
+  border-radius: $border-radius;
+  width: 25%;
+  float: left;
+  margin: $gutter-small / 2;
+
+  h3 {
+    font-weight: bold;
+    width: 40%;
+  }
+
+  .delete {
+    width: 40%;
+  }
+
+  .expense-form {
+    border: $test-border;
+    width: 100%;
+    background-color: inherit;
+  }
+}

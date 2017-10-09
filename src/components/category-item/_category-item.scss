@@ -1,0 +1,45 @@
+@import '../../style/lib/vars';
+
+.category-item {
+  background-color: $yellow;
+  padding: $gutter-large;
+  border-radius: $border-radius;
+  border: $coolgreen solid 3px;
+
+  .expense-container {
+    clear: both;
+    overflow: hidden;
+  }
+
+  .category-form {
+    margin-bottom: 10px;
+    input {
+      display: inline
+    }
+
+    button {
+      float: right
+    }
+  }
+
+  h2 {
+    font-weight: bold;
+    display: inline;
+  }
+
+  p {
+    display: inline;
+    float: right;
+  }
+
+  .delete {
+    display: block;
+    margin: $gutter-small;
+    width: 15%;
+  }
+
+  .expense-items-container {
+    float: right;
+    width: 70%;
+  }
+}

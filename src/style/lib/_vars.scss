@@ -1,0 +1,30 @@
+/* FONTS */
+$font-primary: 'Tahoma', sans-serif;
+$font-secondary: 'Georgia', serif;
+$font-lg: 18px;
+$font-sm: 12px;
+$font-med: 1em;
+
+/* COLORS */
+$black: #333;
+$white: #DDD;
+$grey: $black * 2;
+$brand-primary: #42CFF7;
+$brand-secondary: #FF7E00;
+$green: #0B4F6C;
+$red: #C91611;
+$yellow: #483C46;
+$blue: #F4743B;
+$hotpink: #FF69B4;
+$coolgreen: #70AE6E;
+
+/* SPACING */
+$gutter-large: 3%;
+$gutter-small: $gutter-large / 2;
+
+/* AESTHETICS */
+$border-radius: 8px;
+$transition-primary: 350ms all;
+
+/* TEST */
+$test-border: $red dotted 2px;

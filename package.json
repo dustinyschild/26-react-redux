@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "webpack -d",
+    "prod": "webpack -p",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
